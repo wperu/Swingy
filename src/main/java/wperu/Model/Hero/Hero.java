@@ -179,15 +179,17 @@ public abstract class Hero {
             baseStat.getHitPoint() + (forLevel.getHitPoint() *(level -1)));
         if(weapon != null)
         {
-            endStat.add(bonus)
+            endStat.add(weapon.getBonus());
         }
         if(armor != null)
         {
-
+            endStat.add(armor.getBonus());
+        }
         }
         if(helm != null)
         {
-            endStat.Hit
+            endStat.add(helm.getBonus());
+        }
         }
     }
 
