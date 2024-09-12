@@ -1,4 +1,4 @@
-package main.java.wperu.Model.hero;
+package wperu.Model.Hero;
 
 public class Caster {
     

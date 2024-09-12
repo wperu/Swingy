@@ -1,4 +1,4 @@
-package main.java.wperu.Model.Monster;
+package wperu.Model.Monster;
 
 public class Orc {
     

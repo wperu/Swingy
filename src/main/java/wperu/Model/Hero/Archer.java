@@ -1,4 +1,4 @@
-package main.java.wperu.Model.Hero;
+package wperu.Model.Hero;
 
 public class Archer {
     

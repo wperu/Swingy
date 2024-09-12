@@ -1,4 +1,4 @@
-package main.java.wperu.Model.Artifact;
+package wperu.Model.Artifact;
 
 public class Artifact {
     
