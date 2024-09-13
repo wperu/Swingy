@@ -1,6 +1,8 @@
 package wperu.Model.Hero;
 
 import wperu.Model.Artifact.Artifact;
+import wperu.Model.Stat;
+import wperu.Model.Coordinates;
 
 public abstract class Hero {
     @NotNull
@@ -16,7 +18,7 @@ public abstract class Hero {
     protected Artifact helm;
     protected Coordinates position;
 
-    protected Hero(Sring name)
+    protected Hero(String name)
     {
         this.name = name;
         this.level = 1;
