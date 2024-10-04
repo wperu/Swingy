@@ -36,5 +36,6 @@ public class Artifact {
     public ArtifactEquip getEquip(){
         return equip;
     }
+
     
 }
