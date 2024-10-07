@@ -1,5 +1,7 @@
 package wperu.Model.Artifact;
 
-public class ArtifactEquip {
-    
+public enum ArtifactEquip {
+        WEAPON,
+        ARMOR,
+        HELM,
 }
