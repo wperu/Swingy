@@ -3,10 +3,11 @@ package wperu.Model.Hero;
 import wperu.Model.Artifact.Artifact;
 import wperu.Model.Stat;
 import wperu.Model.Coordinates;
+import wperu.Model.Artifact.ArtifactEquip;
+import wperu.Model.Direction;
 
 public abstract class Hero {
-    @NotNull
-    @Length(min = 1, max = 15)
+   
     protected String name;
 
     protected int level;
@@ -35,7 +36,7 @@ public abstract class Hero {
         {
             case WEAPON:
                 return this.weapon;
-            case ARMOR:
+            case HELM:
                 return this.helm;
             case ARMOR:
                 return this.armor;
@@ -61,7 +62,7 @@ public abstract class Hero {
         FinalStat();
     }
 
-    public void unequipArtifact(Artifact artifact)
+    public void unequipArtifact(ArtifactEquip artifact)
     {
         switch (artifact) {
             case WEAPON:
@@ -169,11 +170,11 @@ public abstract class Hero {
     public void FinalStat()
     {
         level = 1;
-        while(nextLevelXp() < experience)
+        while(nextLevelXp() < xp)
         {
             level += 1;
         }
-        baseStat = getBaseStat();
+        baseStat = getStartStat();
         Stat forLevel = getStatLevel();
         endStat = new Stat(
             baseStat.getAttack() + (forLevel.getAttack() * (level - 1)),
@@ -181,19 +182,16 @@ public abstract class Hero {
             baseStat.getHitPoint() + (forLevel.getHitPoint() *(level -1)));
         if(weapon != null)
         {
-            endStat.add(weapon.getBonus());
+            endStat.add(weapon.getArtifactStat());
         }
         if(armor != null)
         {
-            endStat.add(armor.getBonus());
-        }
+            endStat.add(armor.getArtifactStat());
         }
         if(helm != null)
         {
-            endStat.add(helm.getBonus());
-        }
+            endStat.add(helm.getArtifactStat());
         }
     }
-
-    
 }
+
