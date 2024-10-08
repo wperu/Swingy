@@ -1,9 +1,12 @@
 package wperu.Model.Artifact;
 
 import java.util.Random;
+import wperu.Model.Stat;
+
 
 public class GeneratorArtifact {
     protected static Random rand = new Random();
+    protected static GeneratorArtifact generator = new GeneratorArtifact();
 
     protected String[] artifactType = {
         "Divine" , "Dragon" , "Cursed" , "Royal" , "Mitril", "Enchanted"
@@ -70,4 +73,54 @@ public class GeneratorArtifact {
         else
             return Rarity.COMMON;
     }
+
+    protected Stat StatArtifact(int level, Rarity rarity, ArtifactEquip equip)
+    {
+        Stat stat = new Stat(0, 0, 0);
+        
+        int rarityEffect; 
+        
+        if(rarity.equals(Rarity.LEGENDARY))
+            rarityEffect = 10;
+        else if(rarity.equals(Rarity.EPIC))
+            rarityEffect = 5;
+        else if(rarity.equals(Rarity.RARE))
+            rarityEffect = 2;
+        else
+            rarityEffect = 0;
+        
+        //TODO test different resultat  
+        int hintstat = (level - 1) *  2 + 8 + rarityEffect;
+        if(equip.equals(ArtifactEquip.ARMOR))
+        {
+            int defense = rand.nextInt((int)(hintstat * 0.5));
+            stat.setDefense(defense);
+        }
+        else if (equip.equals(ArtifactEquip.HELM))
+        {
+            int hitPoints = rand.nextInt((int)(hintstat * 0.5));
+            stat.setHitPoints(hitPoints);
+        }
+        else
+        {
+            int attack = rand.nextInt((int)(hintstat * 0.5));
+            stat.setAttack(attack);
+        }
+        return stat;
+    }
+
+    protected Artifact generate(int level)
+    {
+        ArtifactEquip equip = this.equip();
+        String name = this.name(equip);
+        Rarity rarity = this.rarity();
+        Stat statArtifact = this.StatArtifact(level, rarity, equip);
+        return new Artifact(name, rarity, statArtifact, equip);
+    }
+    public static GeneratorArtifact getGeneratorArtifact()
+    {
+        return generator;
+    }
 }
+
+
