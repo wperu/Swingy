@@ -4,17 +4,17 @@ import wperu.Model.Stat;
 
 public class Monster {
     protected String name;
+    protected MonsterRank rank;
     protected int level;
-    protected long xp;
     protected Stat monsterStat;
   
 
 
-    protected Monster(String name, int level, long xp, Stat monsterStat)
+    protected Monster(String name,MonsterRank rank, int level, Stat monsterStat)
     {
         this.name = name;
+        this.rank = rank;
         this.level = level;
-        this.xp = xp;
         this.monsterStat = monsterStat;
     }
 
@@ -23,18 +23,20 @@ public class Monster {
         return name;
     }
 
+    protected MonsterRank rank()
+    {
+        return rank;
+    }
+
     protected int getLevel()
     {
         return level;
-    }
-
-    protected long getXp()
-    {
-        return xp;
     }
 
     protected Stat getStatMonster()
     {
         return monsterStat;
     }
+
+    
 }
