@@ -6,10 +6,17 @@ import wperu.Model.Coordinates;
 import wperu.Model.Artifact.ArtifactEquip;
 import wperu.Model.Direction;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Max;
+
+
 public abstract class Hero {
-   
+    @NotNull
+    @Max(20)
     protected String name;
 
+    @Min(1)
     protected int level;
     protected long xp;
     protected Stat baseStat;
@@ -57,7 +64,6 @@ public abstract class Hero {
             case HELM:
                 this.helm = artifact;
                 break;
-
         }
         FinalStat();
     }
