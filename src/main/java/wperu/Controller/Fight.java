@@ -1,5 +1,7 @@
 package wperu.Controller;
 
-public class Fight {
+public class Fight extends Controller{
+
+    
     
 }

@@ -104,7 +104,7 @@ public class MonsterFactory {
             int defense = rand.nextInt((int) (boost * 0.5));
             stat.setAttack(attack);
             stat.setDefense(defense);
-            stat.setHitPoints(hitPoints); 
+            stat.setHitPoints(hitPoints);  
         }
         return new Monster(name, rank, level, stat);
     }
