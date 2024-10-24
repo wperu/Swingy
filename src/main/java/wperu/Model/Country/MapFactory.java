@@ -12,7 +12,7 @@ public class MapFactory {
         {
             for(int j = 0; j < size; j++ )
                 map[i][j] = rand.nextInt(Biome.values().length);
-
+            
         }
     }
 }
